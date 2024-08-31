@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Werror -c
+CFLAGS = -Wall -Werror -c -pthread
 
 SRC1 = lab11_1.c lab11_1_Func.c
 SRC2 = lab11_2.c lab11_2_Func.c
