@@ -56,7 +56,7 @@ void connection_to_server()
     }
 
     struct msgbuf buffer;
-
+    printf("to exit enter the command #exit\n");
     printf("enter name: ");
     scanf("%s", buffer.mname);
 

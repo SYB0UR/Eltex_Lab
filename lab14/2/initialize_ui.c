@@ -98,7 +98,7 @@ void* win_input_f(void *arg) {
         wgetstr(win_input, input_mtext);
         noecho();
 
-        if (strcmp(input_mtext, "!q") == 0 || strcmp(input_mtext, "#exit") == 0) {
+        if (strcmp(input_mtext, "#exit") == 0) {
             struct msgbuf buffer;
             strcpy(buffer.mname, name);
             snprintf(buffer.mtext, MSG_SIZE, "exit:%s", name);
