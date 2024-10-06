@@ -1,0 +1,38 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -c
+
+SRC_SIGNAL_HANDLER = signal_handler.c
+SRC_KILL = kill.c
+SRC_BLOCK_SIGINT = block_sigint.c
+SRC_EVENT_LOOP = event_loop.c
+
+OBJ_SIGNAL_HANDLER = signal_handler.o
+OBJ_KILL = kill.o
+OBJ_BLOCK_SIGINT = block_sigint.o
+OBJ_EVENT_LOOP = event_loop.o
+
+EXEC_SIGNAL_HANDLER = signal_handler
+EXEC_KILL = kill
+EXEC_BLOCK_SIGINT = block_sigint
+EXEC_EVENT_LOOP = event_loop
+
+all: $(EXEC_SIGNAL_HANDLER) $(EXEC_KILL) $(EXEC_BLOCK_SIGINT) $(EXEC_EVENT_LOOP)
+		rm -f *.o
+
+$(EXEC_SIGNAL_HANDLER): $(OBJ_SIGNAL_HANDLER)
+		$(CC) $(OBJ_SIGNAL_HANDLER) -o $(EXEC_SIGNAL_HANDLER)
+
+$(EXEC_KILL): $(OBJ_KILL)
+		$(CC) $(OBJ_KILL) -o $(EXEC_KILL)
+
+$(EXEC_BLOCK_SIGINT): $(OBJ_BLOCK_SIGINT)
+		$(CC) $(OBJ_BLOCK_SIGINT) -o $(EXEC_BLOCK_SIGINT)
+
+$(EXEC_EVENT_LOOP): $(OBJ_EVENT_LOOP)
+		$(CC) $(OBJ_EVENT_LOOP) -o $(EXEC_EVENT_LOOP)
+
+%.o: %.c
+		$(CC) $(CFLAGS) $< -o $@
+
+clean:
+		rm -f $(OBJ_SIGNAL_HANDLER) $(OBJ_KILL) $(OBJ_BLOCK_SIGINT) $(OBJ_EVENT_LOOP) $(EXEC_SIGNAL_HANDLER) $(EXEC_KILL) $(EXEC_BLOCK_SIGINT) $(EXEC_EVENT_LOOP)
