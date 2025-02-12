@@ -25,7 +25,6 @@ void fill_field(Abonent* ab, const char* field_name) {
     char input[M + 100] = { 0 };
     fgets(input, sizeof(input), stdin);
 
-    // ”даление символа новой строки и обработка длинного ввода
     input[strcspn(input, "\n")] = '\0';
     if (strlen(input) >= M) {
         printf("¬веденные данные превышают допустимую длину и будут обрезаны до %d символов.\n", M - 1);

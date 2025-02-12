@@ -9,10 +9,10 @@ int main() {
         printf("Выберите команду (1-5):\n1) Добавить абонента\n2) Удалить абонента\n3) Поиск абонентов по имени\n4) Вывод всех записей\n5) Выход\nВыбранная команда: ");
         if (scanf("%d", &key) != 1) {
             printf("Некорректный ввод. Попробуйте еще раз.\n");
-            while (getchar() != '\n'); // Очистка буфера
+            while (getchar() != '\n'); 
             continue;
         }
-        while (getchar() != '\n'); // Очистка буфера после ввода числовых данных
+        while (getchar() != '\n'); 
 
         switch (key) {
         case 1:
@@ -22,10 +22,10 @@ int main() {
             printf("Введите id абонента: ");
             if (scanf("%d", &id) != 1) {
                 printf("Некорректный id. Попробуйте еще раз.\n");
-                while (getchar() != '\n'); // Очистка буфера
+                while (getchar() != '\n'); 
                 continue;
             }
-            while (getchar() != '\n'); // Очистка буфера после ввода числовых данных
+            while (getchar() != '\n'); 
             delete_abonent(&head, &tail, id);
             break;
         case 3:
